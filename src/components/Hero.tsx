@@ -26,7 +26,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section id="home" className="relative h-screen min-h-[600px] flex items-center overflow-hidden bg-black">
+    <section id="home" className="relative min-h-[100dvh] flex items-center overflow-hidden bg-black">
       {/* Background Image Slider */}
       <div className="absolute inset-0 z-0">
         <AnimatePresence initial={false}>
@@ -50,26 +50,26 @@ export default function Hero() {
         <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/40 z-20"></div>
       </div>
 
-      <div className="relative z-30 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-20">
+      <div className="relative z-30 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-24 pb-12 md:pt-20 md:pb-0">
         <motion.div
           initial={{ opacity: 0, x: -100 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1, ease: "easeOut" }}
           className="max-w-2xl"
         >
-          <div className="flex items-center gap-2 mb-6">
+          <div className="flex items-center gap-2 mb-4 md:mb-6">
             <motion.div 
               initial={{ width: 0 }}
               animate={{ width: 48 }}
               transition={{ duration: 0.8, delay: 0.5 }}
               className="h-[1px] bg-gold-500"
             ></motion.div>
-            <span className="text-gold-400 uppercase tracking-[0.2em] text-sm font-medium">
+            <span className="text-gold-400 uppercase tracking-[0.2em] text-xs md:text-sm font-medium">
               Premium Car Rental
             </span>
           </div>
           
-          <h1 className="text-5xl md:text-7xl font-display font-bold text-white leading-tight mb-6">
+          <h1 className="text-4xl sm:text-5xl md:text-7xl font-display font-bold text-white leading-tight mb-4 md:mb-6">
             Freedom to <br />
             <span className="text-gold-gradient">Drive Your Way</span>
           </h1>
@@ -78,7 +78,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="text-gray-300 text-lg md:text-xl mb-10 font-light leading-relaxed max-w-lg"
+            className="text-gray-300 text-base md:text-xl mb-8 md:mb-10 font-light leading-relaxed max-w-lg"
           >
             Experience the thrill of self-drive with our premium fleet in Navi Mumbai & Panvel. 
             Luxury, comfort, and performance at your fingertips.
@@ -92,14 +92,14 @@ export default function Hero() {
           >
             <a
               href="#booking"
-              className="px-8 py-4 bg-gold-500 hover:bg-gold-400 text-black font-bold rounded-full transition-all flex items-center justify-center gap-2 group shadow-[0_0_20px_rgba(212,175,55,0.4)]"
+              className="px-8 py-3.5 md:py-4 bg-gold-500 hover:bg-gold-400 text-black font-bold rounded-full transition-all flex items-center justify-center gap-2 group shadow-[0_0_20px_rgba(212,175,55,0.4)] text-sm md:text-base"
             >
               Book Your Car
               <ChevronRight size={20} className="group-hover:translate-x-1 transition-transform" />
             </a>
             <a
               href="#fleet"
-              className="px-8 py-4 bg-transparent border border-white/30 hover:border-gold-400 text-white hover:text-gold-400 font-medium rounded-full transition-all flex items-center justify-center backdrop-blur-sm"
+              className="px-8 py-3.5 md:py-4 bg-transparent border border-white/30 hover:border-gold-400 text-white hover:text-gold-400 font-medium rounded-full transition-all flex items-center justify-center backdrop-blur-sm text-sm md:text-base"
             >
               Explore Fleet
             </a>
@@ -109,15 +109,15 @@ export default function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 1 }}
-            className="mt-12 flex items-center gap-8 text-sm text-gray-400"
+            className="mt-8 md:mt-12 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs md:text-sm text-gray-400"
           >
             <div className="flex items-center gap-2">
               <Star className="text-gold-500 fill-gold-500" size={16} />
               <span>4.9 Google Rating</span>
             </div>
-            <div className="w-1 h-1 bg-gray-600 rounded-full"></div>
+            <div className="hidden sm:block w-1 h-1 bg-gray-600 rounded-full"></div>
             <div>24/7 Support</div>
-            <div className="w-1 h-1 bg-gray-600 rounded-full"></div>
+            <div className="hidden sm:block w-1 h-1 bg-gray-600 rounded-full"></div>
             <div>Sanitized Cars</div>
           </motion.div>
         </motion.div>

@@ -26,7 +26,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section id="home" className="relative min-h-[100dvh] flex items-center overflow-hidden bg-black">
+    <section id="home" className="relative flex items-center overflow-hidden bg-black py-28 md:py-0 md:h-screen md:min-h-[600px]">
       {/* Background Image Slider */}
       <div className="absolute inset-0 z-0">
         <AnimatePresence initial={false}>
@@ -50,27 +50,27 @@ export default function Hero() {
         <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/40 z-20"></div>
       </div>
 
-      <div className="relative z-30 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-24 pb-12 md:pt-20 md:pb-0">
+      <div className="relative z-30 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <motion.div
-          initial={{ opacity: 0, x: -100 }}
-          animate={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: "easeOut" }}
-          className="max-w-2xl"
+          className="max-w-3xl mx-auto md:mx-0 flex flex-col items-center md:items-start text-center md:text-left"
         >
-          <div className="flex items-center gap-2 mb-4 md:mb-6">
+          <div className="flex items-center gap-2 mb-4">
             <motion.div 
               initial={{ width: 0 }}
               animate={{ width: 48 }}
               transition={{ duration: 0.8, delay: 0.5 }}
-              className="h-[1px] bg-gold-500"
+              className="h-[1px] bg-gold-500 hidden md:block"
             ></motion.div>
-            <span className="text-gold-400 uppercase tracking-[0.2em] text-xs md:text-sm font-medium">
+            <span className="text-gold-400 uppercase tracking-[0.2em] text-xs font-medium">
               Premium Car Rental
             </span>
           </div>
           
-          <h1 className="text-4xl sm:text-5xl md:text-7xl font-display font-bold text-white leading-tight mb-4 md:mb-6">
-            Freedom to <br />
+          <h1 className="text-3xl sm:text-5xl md:text-7xl font-display font-bold text-white leading-tight mb-4">
+            Freedom to <br className="hidden md:block" />
             <span className="text-gold-gradient">Drive Your Way</span>
           </h1>
           
@@ -78,7 +78,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="text-gray-300 text-base md:text-xl mb-8 md:mb-10 font-light leading-relaxed max-w-lg"
+            className="text-gray-300 text-sm md:text-xl mb-8 font-light leading-relaxed max-w-lg"
           >
             Experience the thrill of self-drive with our premium fleet in Navi Mumbai & Panvel. 
             Luxury, comfort, and performance at your fingertips.
@@ -88,18 +88,18 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="flex flex-col sm:flex-row gap-4"
+            className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto"
           >
             <a
               href="#booking"
-              className="px-8 py-3.5 md:py-4 bg-gold-500 hover:bg-gold-400 text-black font-bold rounded-full transition-all flex items-center justify-center gap-2 group shadow-[0_0_20px_rgba(212,175,55,0.4)] text-sm md:text-base"
+              className="px-8 py-3.5 bg-gold-500 hover:bg-gold-400 text-black font-bold rounded-full transition-all flex items-center justify-center gap-2 group shadow-[0_0_20px_rgba(212,175,55,0.4)] text-sm md:text-base w-full sm:w-auto"
             >
               Book Your Car
-              <ChevronRight size={20} className="group-hover:translate-x-1 transition-transform" />
+              <ChevronRight size={18} className="group-hover:translate-x-1 transition-transform" />
             </a>
             <a
               href="#fleet"
-              className="px-8 py-3.5 md:py-4 bg-transparent border border-white/30 hover:border-gold-400 text-white hover:text-gold-400 font-medium rounded-full transition-all flex items-center justify-center backdrop-blur-sm text-sm md:text-base"
+              className="px-8 py-3.5 bg-white/10 border border-white/30 hover:border-gold-400 text-white hover:text-gold-400 font-medium rounded-full transition-all flex items-center justify-center backdrop-blur-sm text-sm md:text-base w-full sm:w-auto"
             >
               Explore Fleet
             </a>
@@ -109,7 +109,7 @@ export default function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 1 }}
-            className="mt-8 md:mt-12 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs md:text-sm text-gray-400"
+            className="mt-8 md:mt-12 flex flex-wrap justify-center md:justify-start items-center gap-x-6 gap-y-2 text-xs md:text-sm text-gray-400"
           >
             <div className="flex items-center gap-2">
               <Star className="text-gold-500 fill-gold-500" size={16} />

@@ -1,108 +1,107 @@
-import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
+import { motion } from 'motion/react';
 import { ChevronRight, Star } from 'lucide-react';
 
-const heroImages = [
-  "https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&q=80&w=1920",
-  "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&q=80&w=1920",
-  "https://images.unsplash.com/photo-1503376763036-066120622c74?auto=format&fit=crop&q=80&w=1920",
-  "https://images.unsplash.com/photo-1471479917193-f00955256257?auto=format&fit=crop&q=80&w=1920",
-  "https://images.unsplash.com/photo-1555215695-3004980adade?auto=format&fit=crop&q=80&w=1920",
-];
-
 export default function Hero() {
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentImageIndex((prev) => (prev + 1) % heroImages.length);
-    }, 5000);
-    return () => clearInterval(interval);
-  }, []);
-
   return (
-    <section id="home" className="bg-black text-white overflow-hidden pt-24 pb-10 md:pt-32 md:pb-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-          
-          {/* Text Content */}
-          <div className="flex flex-col items-center md:items-start text-center md:text-left order-1">
+    <section id="home" className="relative flex items-center justify-center overflow-hidden bg-black min-h-[100dvh]">
+      {/* YouTube Background Video */}
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+        <iframe
+          src="https://www.youtube.com/embed/WZMwejHLdr0?autoplay=1&mute=1&loop=1&playlist=WZMwejHLdr0&controls=0&showinfo=0&modestbranding=1&playsinline=1"
+          title="YouTube video player"
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+          className="absolute top-1/2 left-1/2 w-[100vw] h-[56.25vw] min-h-[100vh] min-w-[177.77vh] -translate-x-1/2 -translate-y-1/2"
+        ></iframe>
+      </div>
+      
+      {/* Dark Overlay (50% opacity) */}
+      <div className="absolute inset-0 bg-black/50 z-10"></div>
+      
+      {/* Gradient Overlays for extra readability at edges */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/60 z-10"></div>
+
+      {/* Centered Foreground Content */}
+      <div className="relative z-20 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex flex-col items-center text-center pt-24 pb-12 md:pt-0 md:pb-0">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, ease: "easeOut" }}
+          className="flex flex-col items-center"
+        >
+          <div className="flex items-center gap-2 mb-4 md:mb-6">
             <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-            >
-              <div className="flex items-center gap-2 mb-4 justify-center md:justify-start">
-                <div className="h-[1px] w-12 bg-gold-500"></div>
-                <span className="text-gold-400 uppercase tracking-[0.2em] text-xs font-medium">
-                  Premium Car Rental
-                </span>
-              </div>
-
-              <h1 className="text-3xl md:text-5xl lg:text-6xl font-display font-bold text-white leading-tight">
-                Freedom to <br className="hidden md:block" />
-                <span className="bg-gradient-to-r from-gold-400 to-gold-600 bg-clip-text text-transparent">
-                  Drive Your Way
-                </span>
-              </h1>
-
-              <p className="text-gray-400 text-sm md:text-lg mt-3 md:mt-6 max-w-lg mx-auto md:mx-0 leading-relaxed">
-                Experience the thrill of self-drive with our premium fleet in Navi Mumbai & Panvel. 
-                Luxury, comfort, and performance at your fingertips.
-              </p>
-
-              <div className="flex flex-col sm:flex-row gap-3 mt-5 md:mt-8 w-full sm:w-auto">
-                <a
-                  href="#booking"
-                  className="px-8 py-3 bg-gold-500 hover:bg-gold-400 text-black font-bold rounded-full transition-all flex items-center justify-center gap-2 shadow-lg shadow-gold-500/20 w-full sm:w-auto"
-                >
-                  Book Now
-                  <ChevronRight size={18} />
-                </a>
-                <a
-                  href="#fleet"
-                  className="px-8 py-3 bg-white/10 border border-white/20 hover:border-gold-500/50 text-white hover:text-gold-400 font-medium rounded-full transition-all flex items-center justify-center backdrop-blur-sm w-full sm:w-auto"
-                >
-                  Explore Fleet
-                </a>
-              </div>
-
-              <div className="mt-8 flex items-center justify-center md:justify-start gap-4 text-xs text-gray-500">
-                <div className="flex items-center gap-1">
-                  <Star className="text-gold-500 fill-gold-500" size={14} />
-                  <span className="text-gray-300">4.9 Rating</span>
-                </div>
-                <div className="w-1 h-1 bg-gray-700 rounded-full"></div>
-                <span>24/7 Support</span>
-              </div>
-            </motion.div>
+              initial={{ width: 0 }}
+              animate={{ width: 48 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+              className="h-[1px] bg-gold-500"
+            ></motion.div>
+            <span className="text-gold-400 uppercase tracking-[0.2em] text-xs md:text-sm font-medium">
+              Premium Car Rental
+            </span>
+            <motion.div 
+              initial={{ width: 0 }}
+              animate={{ width: 48 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+              className="h-[1px] bg-gold-500"
+            ></motion.div>
           </div>
-
-          {/* Image Content */}
-          <div className="order-2 w-full max-w-md mx-auto mt-6 md:mt-0">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8 }}
-              className="relative aspect-[4/3] rounded-2xl overflow-hidden border border-white/10 shadow-2xl"
+          
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold text-white leading-tight mb-4 md:mb-6">
+            Freedom to <br className="hidden sm:block" />
+            <span className="bg-gradient-to-r from-gold-400 to-gold-600 bg-clip-text text-transparent">
+              Drive Your Way
+            </span>
+          </h1>
+          
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="text-gray-200 text-base md:text-xl mb-8 md:mb-10 font-light leading-relaxed max-w-2xl"
+          >
+            Experience the thrill of self-drive with our premium fleet in Navi Mumbai & Panvel. 
+            Luxury, comfort, and performance at your fingertips.
+          </motion.p>
+          
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto justify-center"
+          >
+            <a
+              href="#booking"
+              className="px-8 py-3.5 md:py-4 bg-gold-500 hover:bg-gold-400 text-black font-bold rounded-full transition-all flex items-center justify-center gap-2 group shadow-[0_0_20px_rgba(212,175,55,0.4)] text-sm md:text-base w-full sm:w-auto"
             >
-              <AnimatePresence mode="wait">
-                <motion.img
-                  key={currentImageIndex}
-                  src={heroImages[currentImageIndex]}
-                  alt="Luxury Car"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.5 }}
-                  className="absolute inset-0 w-full h-full object-cover"
-                />
-              </AnimatePresence>
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent pointer-events-none"></div>
-            </motion.div>
-          </div>
+              Book Your Car
+              <ChevronRight size={20} className="group-hover:translate-x-1 transition-transform" />
+            </a>
+            <a
+              href="#fleet"
+              className="px-8 py-3.5 md:py-4 bg-white/10 border border-white/30 hover:border-gold-400 text-white hover:text-gold-400 font-medium rounded-full transition-all flex items-center justify-center backdrop-blur-sm text-sm md:text-base w-full sm:w-auto"
+            >
+              Explore Fleet
+            </a>
+          </motion.div>
 
-        </div>
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 1 }}
+            className="mt-10 md:mt-16 flex flex-wrap justify-center items-center gap-x-6 gap-y-3 text-xs md:text-sm text-gray-300"
+          >
+            <div className="flex items-center gap-2">
+              <Star className="text-gold-500 fill-gold-500" size={16} />
+              <span>4.9 Google Rating</span>
+            </div>
+            <div className="hidden sm:block w-1 h-1 bg-gray-500 rounded-full"></div>
+            <div>24/7 Support</div>
+            <div className="hidden sm:block w-1 h-1 bg-gray-500 rounded-full"></div>
+            <div>Sanitized Cars</div>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );

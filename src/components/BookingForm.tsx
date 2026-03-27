@@ -40,7 +40,7 @@ export default function BookingForm() {
             <span className="text-gold-600 dark:text-gold-400 uppercase tracking-[0.2em] text-sm font-medium">
               Instant Booking
             </span>
-            <h2 className="text-4xl md:text-5xl font-display font-bold text-gray-900 dark:text-white mt-3 mb-6">
+            <h2 className="text-4xl md:text-5xl font-display font-semibold text-gray-900 dark:text-white mt-3 mb-6">
               Start Your <span className="text-gold-500">Journey</span>
             </h2>
             <p className="text-gray-600 dark:text-gray-400 text-lg mb-8">
@@ -53,7 +53,7 @@ export default function BookingForm() {
                   <Calendar size={24} />
                 </div>
                 <div>
-                  <h4 className="text-gray-900 dark:text-white font-bold text-lg">Flexible Dates</h4>
+                  <h4 className="text-gray-900 dark:text-white font-semibold text-lg">Flexible Dates</h4>
                   <p className="text-gray-600 dark:text-gray-400 text-sm">Choose your pickup and drop-off times that suit your schedule.</p>
                 </div>
               </div>
@@ -62,7 +62,7 @@ export default function BookingForm() {
                   <MessageCircle size={24} />
                 </div>
                 <div>
-                  <h4 className="text-gray-900 dark:text-white font-bold text-lg">Instant Confirmation</h4>
+                  <h4 className="text-gray-900 dark:text-white font-semibold text-lg">Instant Confirmation</h4>
                   <p className="text-gray-600 dark:text-gray-400 text-sm">Get immediate response and booking confirmation via WhatsApp.</p>
                 </div>
               </div>
@@ -154,7 +154,7 @@ export default function BookingForm() {
 
               <button
                 type="submit"
-                className="w-full py-4 bg-gold-500 hover:bg-gold-400 text-black font-bold rounded-xl transition-all shadow-[0_0_20px_rgba(212,175,55,0.3)] hover:shadow-[0_0_30px_rgba(212,175,55,0.5)] transform hover:-translate-y-1"
+                className="w-full py-4 bg-gold-500 hover:bg-gold-400 text-black font-semibold rounded-xl transition-all shadow-[0_0_20px_rgba(212,175,55,0.3)] hover:shadow-[0_0_30px_rgba(212,175,55,0.5)] transform hover:-translate-y-1"
               >
                 Book via WhatsApp
               </button>

@@ -23,7 +23,7 @@ export default function Features() {
           <span className="text-gold-600 dark:text-gold-400 uppercase tracking-[0.2em] text-sm font-medium">
             Why Choose Us
           </span>
-          <h2 className="text-4xl md:text-5xl font-display font-bold text-gray-900 dark:text-white mt-3">
+          <h2 className="text-4xl md:text-5xl font-display font-semibold text-gray-900 dark:text-white mt-3">
             Excellence in Every <span className="text-gold-500">Mile</span>
           </h2>
         </div>
@@ -51,7 +51,7 @@ export default function Features() {
               <EditableText 
                 path={`features[${index}].title`} 
                 tag="h3" 
-                className="text-xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-gold-600 dark:group-hover:text-gold-400 transition-colors" 
+                className="text-xl font-semibold text-gray-900 dark:text-white mb-3 group-hover:text-gold-600 dark:group-hover:text-gold-400 transition-colors" 
               />
               <EditableText 
                 path={`features[${index}].description`} 

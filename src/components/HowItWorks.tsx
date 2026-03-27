@@ -22,7 +22,7 @@ export default function HowItWorks() {
           <span className="text-gold-400 uppercase tracking-[0.2em] text-sm font-medium">
             Process
           </span>
-          <h2 className="text-4xl md:text-5xl font-display font-bold text-white mt-3">
+          <h2 className="text-4xl md:text-5xl font-display font-semibold text-white mt-3">
             How It <span className="text-gold-500">Works</span>
           </h2>
         </div>
@@ -42,14 +42,14 @@ export default function HowItWorks() {
             >
               <div className="w-24 h-24 rounded-full bg-black border-4 border-zinc-900 flex items-center justify-center text-gold-500 mb-6 relative z-10 shadow-xl">
                 {iconMap[index % iconMap.length]}
-                <div className="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-gold-500 text-black font-bold flex items-center justify-center text-sm">
+                <div className="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-gold-500 text-black font-semibold flex items-center justify-center text-sm">
                   {index + 1}
                 </div>
               </div>
               <EditableText 
                 path={`steps[${index}].title`} 
                 tag="h3" 
-                className="text-2xl font-bold text-white mb-3" 
+                className="text-2xl font-semibold text-white mb-3" 
               />
               <EditableText 
                 path={`steps[${index}].description`} 

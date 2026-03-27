@@ -13,7 +13,7 @@ export default function Gallery() {
           <span className="text-gold-600 dark:text-gold-400 uppercase tracking-[0.2em] text-sm font-medium">
             Visual Experience
           </span>
-          <h2 className="text-4xl md:text-5xl font-display font-bold text-gray-900 dark:text-white mt-3">
+          <h2 className="text-4xl md:text-5xl font-display font-semibold text-gray-900 dark:text-white mt-3">
             Our <span className="text-gold-500">Gallery</span>
           </h2>
           <p className="text-gray-600 dark:text-gray-400 mt-4 max-w-2xl mx-auto">

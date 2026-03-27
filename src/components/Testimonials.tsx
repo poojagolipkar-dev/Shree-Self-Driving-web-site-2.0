@@ -51,13 +51,13 @@ export default function Testimonials() {
           <span className="text-gold-600 dark:text-gold-400 uppercase tracking-[0.2em] text-sm font-medium">
             Testimonials
           </span>
-          <h2 className="text-4xl md:text-5xl font-display font-bold text-gray-900 dark:text-white mt-3">
+          <h2 className="text-4xl md:text-5xl font-display font-semibold text-gray-900 dark:text-white mt-3">
             Client <span className="text-gold-500">Stories</span>
           </h2>
           {googleRating && (
             <div className="mt-4 flex items-center justify-center gap-2 text-gray-600 dark:text-gray-400">
               <div className="flex items-center text-gold-500">
-                <span className="font-bold text-xl mr-1">{googleRating}</span>
+                <span className="font-semibold text-xl mr-1">{googleRating}</span>
                 <Star className="fill-current" size={20} />
               </div>
               <span>based on {totalRatings} Google reviews</span>
@@ -96,12 +96,12 @@ export default function Testimonials() {
                     referrerPolicy="no-referrer"
                   />
                 ) : (
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-gray-200 to-gray-300 dark:from-gray-700 dark:to-gray-900 flex items-center justify-center text-gray-900 dark:text-white font-bold border border-gold-500/30">
+                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-gray-200 to-gray-300 dark:from-gray-700 dark:to-gray-900 flex items-center justify-center text-gray-900 dark:text-white font-semibold border border-gold-500/30">
                     {testimonial.name[0]}
                   </div>
                 )}
                 <div>
-                  <h4 className="text-gray-900 dark:text-white font-bold text-sm">{testimonial.name}</h4>
+                  <h4 className="text-gray-900 dark:text-white font-semibold text-sm">{testimonial.name}</h4>
                   <span className="text-xs text-gold-600 dark:text-gold-400">{testimonial.location}</span>
                 </div>
               </div>

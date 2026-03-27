@@ -53,7 +53,7 @@ export default function Hero() {
           <EditableText 
             path="hero.title" 
             tag="h1" 
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold text-white leading-tight mb-4 md:mb-6" 
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-semibold text-white leading-tight mb-4 md:mb-6 text-gold-gradient" 
           />
           
           <motion.div 
@@ -77,7 +77,7 @@ export default function Hero() {
           >
             <a
               href="#booking"
-              className="px-8 py-3.5 md:py-4 bg-gold-500 hover:bg-gold-400 text-black font-bold rounded-full transition-all flex items-center justify-center gap-2 group shadow-[0_0_20px_rgba(212,175,55,0.4)] text-sm md:text-base w-full sm:w-auto"
+              className="px-8 py-3.5 md:py-4 bg-gold-500 hover:bg-gold-400 text-black font-semibold rounded-full transition-all flex items-center justify-center gap-2 group shadow-[0_0_20px_rgba(212,175,55,0.4)] text-sm md:text-base w-full sm:w-auto"
             >
               <EditableText path="hero.button1" />
               <ChevronRight size={20} className="group-hover:translate-x-1 transition-transform" />

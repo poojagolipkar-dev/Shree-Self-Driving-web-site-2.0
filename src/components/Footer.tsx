@@ -9,14 +9,21 @@ export default function Footer() {
           
           {/* Brand Info */}
           <div>
-            <div className="flex items-center gap-2 mb-6">
-              <div className="w-10 h-10 rounded-full bg-gold-500 flex items-center justify-center text-black font-bold text-xl">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-10 h-10 rounded-xl bg-gray-900 dark:bg-gold-500 flex items-center justify-center text-gold-500 dark:text-black font-bold text-xl border border-gold-500 shadow-[0_0_15px_rgba(212,175,55,0.2)]">
                 S
               </div>
-              <span className="text-2xl font-display font-bold text-gray-900 dark:text-white leading-tight">
-                Shree Self Driving <br className="hidden sm:block" />
-                <span className="text-gold-600 dark:text-gold-500">& Car Rental Service</span>
-              </span>
+              <div className="flex flex-col">
+                <div className="flex items-baseline gap-1">
+                  <span className="text-xl font-display font-bold tracking-tight text-gray-900 dark:text-white">
+                    SHREE
+                  </span>
+                  <span className="text-gold-500 font-bold text-xl">.</span>
+                </div>
+                <span className="text-[8px] uppercase tracking-[0.2em] font-semibold -mt-1 text-gray-500 dark:text-gold-500/80">
+                  Self Driving & Rentals
+                </span>
+              </div>
             </div>
             <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-6">
               Premium self-drive car rental service in Navi Mumbai & Panvel. 
@@ -37,7 +44,7 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-gray-900 dark:text-white font-bold mb-6">Quick Links</h4>
+            <h4 className="text-gray-900 dark:text-white font-semibold mb-6">Quick Links</h4>
             <ul className="space-y-3">
               <li><Link to="/" className="text-gray-600 dark:text-gray-400 hover:text-gold-600 dark:hover:text-gold-500 text-sm transition-colors">Home</Link></li>
               <li><a href="/#fleet" className="text-gray-600 dark:text-gray-400 hover:text-gold-600 dark:hover:text-gold-500 text-sm transition-colors">Our Fleet</a></li>
@@ -51,7 +58,7 @@ export default function Footer() {
 
           {/* Contact Info */}
           <div>
-            <h4 className="text-gray-900 dark:text-white font-bold mb-6">Contact Us</h4>
+            <h4 className="text-gray-900 dark:text-white font-semibold mb-6">Contact Us</h4>
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
                 <MapPin className="text-gold-500 shrink-0 mt-1" size={18} />

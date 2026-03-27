@@ -47,7 +47,7 @@ export const EditableImage = ({ path, className = '', alt = '' }: any) => {
             setIsEditing(true);
           }}
         >
-          <span className="text-white text-sm font-bold bg-black/70 px-3 py-1 rounded">Edit Image URL</span>
+          <span className="text-white text-sm font-semibold bg-black/70 px-3 py-1 rounded">Edit Image URL</span>
         </div>
       )}
 

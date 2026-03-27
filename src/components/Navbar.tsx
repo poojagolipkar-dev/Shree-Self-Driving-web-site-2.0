@@ -65,16 +65,25 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-3 group">
-            <div className="w-12 h-12 rounded-full bg-gradient-to-br from-gold-400 to-gold-600 flex items-center justify-center text-black font-bold text-2xl shadow-[0_0_15px_rgba(212,175,55,0.3)] group-hover:scale-105 transition-transform duration-300">
-              S
+          <Link to="/" className="flex items-center gap-4 group">
+            <div className="relative">
+              <motion.div 
+                whileHover={{ rotate: 5, scale: 1.05 }}
+                className="w-12 h-12 rounded-xl bg-gray-900 dark:bg-gold-500 flex items-center justify-center text-gold-500 dark:text-black font-bold text-2xl border-2 border-gold-500 shadow-[0_0_20px_rgba(212,175,55,0.3)] transition-all duration-300"
+              >
+                S
+              </motion.div>
+              <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-gold-600 rounded-full border-2 border-white dark:border-black"></div>
             </div>
             <div className="flex flex-col">
-              <span className={`text-lg sm:text-xl font-display font-bold tracking-wide transition-colors duration-300 ${showSolidNavbar ? 'text-gray-900 dark:text-white' : 'text-white'}`}>
-                Shree Self Driving
-              </span>
-              <span className="text-[10px] sm:text-xs text-gold-500 uppercase tracking-[0.1em] font-medium">
-                & Car Rental Service
+              <div className="flex items-baseline gap-1">
+                <span className={`text-xl sm:text-2xl font-display font-bold tracking-tight transition-colors duration-300 ${showSolidNavbar ? 'text-gray-900 dark:text-white' : 'text-white'}`}>
+                  SHREE
+                </span>
+                <span className="text-gold-500 font-bold text-2xl">.</span>
+              </div>
+              <span className={`text-[9px] sm:text-[10px] uppercase tracking-[0.25em] font-semibold -mt-1 transition-colors duration-300 ${showSolidNavbar ? 'text-gray-500 dark:text-gold-500/80' : 'text-gold-500/90'}`}>
+                Self Driving & Rentals
               </span>
             </div>
           </Link>
@@ -128,7 +137,7 @@ export default function Navbar() {
                   e.preventDefault();
                   handleNavClick(e as any, '/#booking');
                 }}
-                className="px-7 py-2.5 bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-400 hover:to-gold-500 text-black font-bold text-sm uppercase tracking-wider rounded-full transition-all transform hover:scale-105 hover:shadow-[0_0_20px_rgba(212,175,55,0.4)]"
+                className="px-7 py-2.5 bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-400 hover:to-gold-500 text-black font-semibold text-sm uppercase tracking-wider rounded-full transition-all transform hover:scale-105 hover:shadow-[0_0_20px_rgba(212,175,55,0.4)]"
               >
                 Book Now
               </a>
@@ -199,7 +208,7 @@ export default function Navbar() {
                     e.preventDefault();
                     handleNavClick(e as any, '/#booking');
                   }}
-                  className="block w-full text-center px-6 py-3.5 bg-gradient-to-r from-gold-500 to-gold-600 text-black font-bold uppercase tracking-wider rounded-xl shadow-lg"
+                  className="block w-full text-center px-6 py-3.5 bg-gradient-to-r from-gold-500 to-gold-600 text-black font-semibold uppercase tracking-wider rounded-xl shadow-lg"
                 >
                   Book Now
                 </a>

@@ -14,7 +14,7 @@ export default function Fleet() {
           <span className="text-gold-600 dark:text-gold-400 uppercase tracking-[0.2em] text-sm font-medium">
             Our Collection
           </span>
-          <h2 className="text-4xl md:text-5xl font-display font-bold text-gray-900 dark:text-white mt-3 mb-6">
+          <h2 className="text-4xl md:text-5xl font-display font-semibold text-gray-900 dark:text-white mt-3 mb-6">
             Choose Your <span className="text-gold-500">Ride</span>
           </h2>
           <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
@@ -40,8 +40,8 @@ export default function Fleet() {
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
                 <div className="absolute top-4 right-4 bg-white/90 dark:bg-black/70 backdrop-blur-md px-3 py-1 rounded-full border border-gold-500/30 flex items-center">
-                  <span className="text-gold-600 dark:text-gold-400 font-bold">₹</span>
-                  <EditableText path={`cars[${index}].price`} className="text-gold-600 dark:text-gold-400 font-bold" />
+                  <span className="text-gold-600 dark:text-gold-400 font-semibold">₹</span>
+                  <EditableText path={`cars[${index}].price`} className="text-gold-600 dark:text-gold-400 font-semibold" />
                   <span className="text-xs text-gray-600 dark:text-gray-300 ml-1">/day</span>
                 </div>
               </div>
@@ -49,7 +49,7 @@ export default function Fleet() {
               <div className="p-6">
                 <div className="flex justify-between items-start mb-4">
                   <div>
-                    <EditableText path={`cars[${index}].name`} tag="h3" className="text-xl font-bold text-gray-900 dark:text-white mb-1" />
+                    <EditableText path={`cars[${index}].name`} tag="h3" className="text-xl font-semibold text-gray-900 dark:text-white mb-1" />
                     <EditableText path={`cars[${index}].category`} tag="span" className="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wider border border-gray-300 dark:border-gray-700 px-2 py-0.5 rounded inline-block" />
                   </div>
                 </div>

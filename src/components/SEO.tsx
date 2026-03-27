@@ -3,10 +3,10 @@ import { Helmet } from 'react-helmet-async';
 export default function SEO() {
   return (
     <Helmet>
-      <title>Shree Self Driving & Car Rental Service | Navi Mumbai & Panvel</title>
+      <title>SHREE. | Premium Self Driving & Car Rental Service</title>
       <meta name="description" content="Premium self-drive car rental service in Navi Mumbai & Panvel. Rent luxury cars like Thar, Swift, Baleno at affordable rates. 24/7 support & sanitized cars." />
       <meta name="keywords" content="Self Drive Car Rental Navi Mumbai, Self Drive Cars Panvel, Car Rental Navi Mumbai, Rent a Car Panvel, Luxury Car Rental" />
-      <meta property="og:title" content="Shree Self Driving & Car Rental Service" />
+      <meta property="og:title" content="SHREE. | Premium Self Driving & Car Rental Service" />
       <meta property="og:description" content="Freedom to Drive Your Way. Premium Self Drive Cars in Navi Mumbai & Panvel." />
       <meta property="og:type" content="website" />
       <meta property="og:url" content="https://shreeselfdriving.com" />
@@ -17,7 +17,7 @@ export default function SEO() {
           {
             "@context": "https://schema.org",
             "@type": "CarRental",
-            "name": "Shree Self Driving & Car Rental Service",
+            "name": "SHREE. Self Driving & Rentals",
             "image": "https://images.unsplash.com/photo-1503376763036-066120622c74",
             "address": {
               "@type": "PostalAddress",

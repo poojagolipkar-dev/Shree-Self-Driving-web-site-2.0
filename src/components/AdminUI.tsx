@@ -44,7 +44,7 @@ export default function AdminUI() {
               <X size={20} />
             </button>
             
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Admin Login</h2>
+            <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-6">Admin Login</h2>
             
             <form onSubmit={handleLogin}>
               <div className="mb-4">
@@ -69,7 +69,7 @@ export default function AdminUI() {
               
               <button
                 type="submit"
-                className="w-full py-3 bg-gold-500 hover:bg-gold-400 text-black font-bold rounded-lg transition-colors"
+                className="w-full py-3 bg-gold-500 hover:bg-gold-400 text-black font-semibold rounded-lg transition-colors"
               >
                 Login
               </button>
@@ -82,7 +82,7 @@ export default function AdminUI() {
       {token && (
         <div className="fixed top-0 left-0 right-0 bg-gray-900 text-white px-6 py-3 flex items-center justify-between z-[100] shadow-md">
           <div className="flex items-center gap-4">
-            <span className="font-bold text-gold-500">Admin Mode</span>
+            <span className="font-semibold text-gold-500">Admin Mode</span>
             <button
               onClick={toggleEditMode}
               className={`flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-medium transition-colors ${
@@ -97,7 +97,7 @@ export default function AdminUI() {
           <div className="flex items-center gap-4">
             <button
               onClick={saveChanges}
-              className="flex items-center gap-2 px-4 py-1.5 bg-gold-500 hover:bg-gold-400 text-black rounded-full text-sm font-bold transition-colors"
+              className="flex items-center gap-2 px-4 py-1.5 bg-gold-500 hover:bg-gold-400 text-black rounded-full text-sm font-semibold transition-colors"
             >
               <Save size={16} />
               Save Changes

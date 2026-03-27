@@ -42,6 +42,7 @@ export default function Footer() {
               <li><Link to="/" className="text-gray-600 dark:text-gray-400 hover:text-gold-600 dark:hover:text-gold-500 text-sm transition-colors">Home</Link></li>
               <li><a href="/#fleet" className="text-gray-600 dark:text-gray-400 hover:text-gold-600 dark:hover:text-gold-500 text-sm transition-colors">Our Fleet</a></li>
               <li><a href="/#features" className="text-gray-600 dark:text-gray-400 hover:text-gold-600 dark:hover:text-gold-500 text-sm transition-colors">Services</a></li>
+              <li><a href="/#gallery" className="text-gray-600 dark:text-gray-400 hover:text-gold-600 dark:hover:text-gold-500 text-sm transition-colors">Gallery</a></li>
               <li><a href="/#booking" className="text-gray-600 dark:text-gray-400 hover:text-gold-600 dark:hover:text-gold-500 text-sm transition-colors">Book Now</a></li>
               <li><Link to="/terms" className="text-gray-600 dark:text-gray-400 hover:text-gold-600 dark:hover:text-gold-500 text-sm transition-colors">Terms & Conditions</Link></li>
               <li><a href="/#contact" className="text-gray-600 dark:text-gray-400 hover:text-gold-600 dark:hover:text-gold-500 text-sm transition-colors">Contact Us</a></li>
@@ -76,7 +77,7 @@ export default function Footer() {
           {/* Map */}
           <div className="h-48 rounded-xl overflow-hidden border border-white/10">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3772.669319352226!2d73.1000!3d19.0!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7e83e6016629b%3A0x622668352610199e!2sShree%20Self%20Driving%20%26%20Car%20Rental%20Service!5e0!3m2!1sen!2sin!4v1709834567890!5m2!1sen!2sin"
+              src="https://maps.google.com/maps?q=Bhoomi%20Landmark,%20Sector%2017,%20Khanda%20Colony,%20Panvel,%20Navi%20Mumbai&t=&z=15&ie=UTF8&iwloc=&output=embed"
               width="100%"
               height="100%"
               style={{ border: 0 }}

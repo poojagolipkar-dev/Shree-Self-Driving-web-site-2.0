@@ -1,22 +1,24 @@
 import express from 'express';
+import serverless from 'serverless-http';
 import cors from 'cors';
 import fs from 'fs/promises';
 import path from 'path';
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcryptjs';
 import { fileURLToPath } from 'url';
-import { createServer as createViteServer } from 'vite';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const app = express();
-const PORT = 3000;
 
 app.use(cors());
 app.use(express.json());
 
-const CONTENT_FILE = path.join(__dirname, 'content.json');
+// In a serverless environment, the file system is read-only except for /tmp.
+// However, since this is just a mock/example, we'll try to read from the project root.
+// In a real Netlify deployment, you'd want to use a database (like Supabase, Firebase, or MongoDB)
+// instead of a local JSON file for persistent storage.
+const CONTENT_FILE = path.resolve(process.cwd(), 'content.json');
 const JWT_SECRET = process.env.JWT_SECRET || 'super-secret-key-change-in-production';
-// Default password is 'admin123'
 const ADMIN_PASSWORD_HASH = process.env.ADMIN_PASSWORD_HASH || bcrypt.hashSync('admin123', 10);
 
 app.post('/api/login', async (req, res) => {
@@ -43,6 +45,8 @@ app.post('/api/content', async (req, res) => {
   if (!token) return res.status(401).json({ error: 'Unauthorized' });
   try {
     jwt.verify(token, JWT_SECRET);
+    // Note: Writing to the file system will not persist across function invocations on Netlify.
+    // It will only write to the ephemeral container.
     await fs.writeFile(CONTENT_FILE, JSON.stringify(req.body, null, 2));
     res.json({ success: true });
   } catch (e) {
@@ -50,20 +54,4 @@ app.post('/api/content', async (req, res) => {
   }
 });
 
-async function startServer() {
-  if (process.env.NODE_ENV !== 'production') {
-    const vite = await createViteServer({
-      server: { middlewareMode: true },
-      appType: 'spa',
-    });
-    app.use(vite.middlewares);
-  } else {
-    app.use(express.static(path.join(__dirname, 'dist')));
-  }
-
-  app.listen(PORT, '0.0.0.0', () => {
-    console.log(`Server running on port ${PORT}`);
-  });
-}
-
-startServer();
+export const handler = serverless(app);

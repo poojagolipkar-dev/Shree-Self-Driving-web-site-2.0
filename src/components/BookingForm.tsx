@@ -1,9 +1,12 @@
 import { useState, ChangeEvent, FormEvent } from 'react';
 import { motion } from 'motion/react';
 import { Calendar, MapPin, Car, Phone, User, MessageCircle } from 'lucide-react';
-import { cars } from '../data';
+import { useAdmin } from '../context/AdminContext';
 
 export default function BookingForm() {
+  const { content } = useAdmin();
+  const cars = content?.cars || [];
+
   const [formData, setFormData] = useState({
     pickupDate: '',
     dropoffDate: '',

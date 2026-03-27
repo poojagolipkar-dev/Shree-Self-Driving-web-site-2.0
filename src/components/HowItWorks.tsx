@@ -1,25 +1,18 @@
 import { motion } from 'motion/react';
 import { Search, CalendarCheck, CarFront } from 'lucide-react';
+import { useAdmin } from '../context/AdminContext';
+import { EditableText } from './Editable';
 
-const steps = [
-  {
-    icon: <Search size={32} />,
-    title: "Select Your Car",
-    description: "Browse our premium fleet and choose the car that fits your style and needs."
-  },
-  {
-    icon: <CalendarCheck size={32} />,
-    title: "Book Online",
-    description: "Fill in your details and dates. Confirm your booking instantly via WhatsApp."
-  },
-  {
-    icon: <CarFront size={32} />,
-    title: "Pick Up & Drive",
-    description: "Collect your sanitized car from our location and enjoy the freedom of the road."
-  }
+const iconMap = [
+  <Search size={32} />,
+  <CalendarCheck size={32} />,
+  <CarFront size={32} />
 ];
 
 export default function HowItWorks() {
+  const { content } = useAdmin();
+  const steps = content?.steps || [];
+
   return (
     <section className="py-24 bg-zinc-900 relative overflow-hidden">
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gold-500/50 to-transparent"></div>
@@ -38,7 +31,7 @@ export default function HowItWorks() {
           {/* Connecting Line (Desktop) */}
           <div className="hidden md:block absolute top-12 left-0 w-full h-0.5 bg-gray-800 -z-10"></div>
 
-          {steps.map((step, index) => (
+          {steps.map((step: any, index: number) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, x: 50 }}
@@ -48,17 +41,21 @@ export default function HowItWorks() {
               className="flex flex-col items-center text-center"
             >
               <div className="w-24 h-24 rounded-full bg-black border-4 border-zinc-900 flex items-center justify-center text-gold-500 mb-6 relative z-10 shadow-xl">
-                {step.icon}
+                {iconMap[index % iconMap.length]}
                 <div className="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-gold-500 text-black font-bold flex items-center justify-center text-sm">
                   {index + 1}
                 </div>
               </div>
-              <h3 className="text-2xl font-bold text-white mb-3">
-                {step.title}
-              </h3>
-              <p className="text-gray-400 max-w-xs">
-                {step.description}
-              </p>
+              <EditableText 
+                path={`steps[${index}].title`} 
+                tag="h3" 
+                className="text-2xl font-bold text-white mb-3" 
+              />
+              <EditableText 
+                path={`steps[${index}].description`} 
+                tag="p" 
+                className="text-gray-400 max-w-xs" 
+              />
             </motion.div>
           ))}
         </div>

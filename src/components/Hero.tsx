@@ -1,5 +1,6 @@
 import { motion } from 'motion/react';
 import { ChevronRight, Star } from 'lucide-react';
+import { EditableText } from './Editable';
 
 export default function Hero() {
   return (
@@ -37,9 +38,10 @@ export default function Hero() {
               transition={{ duration: 0.8, delay: 0.5 }}
               className="h-[1px] bg-gold-500"
             ></motion.div>
-            <span className="text-gold-400 uppercase tracking-[0.2em] text-xs md:text-sm font-medium">
-              Premium Car Rental
-            </span>
+            <EditableText 
+              path="hero.badge" 
+              className="text-gold-400 uppercase tracking-[0.2em] text-xs md:text-sm font-medium" 
+            />
             <motion.div 
               initial={{ width: 0 }}
               animate={{ width: 48 }}
@@ -48,22 +50,24 @@ export default function Hero() {
             ></motion.div>
           </div>
           
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold text-white leading-tight mb-4 md:mb-6">
-            Freedom to <br className="hidden sm:block" />
-            <span className="bg-gradient-to-r from-gold-400 to-gold-600 bg-clip-text text-transparent">
-              Drive Your Way
-            </span>
-          </h1>
+          <EditableText 
+            path="hero.title" 
+            tag="h1" 
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold text-white leading-tight mb-4 md:mb-6" 
+          />
           
-          <motion.p 
+          <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="text-gray-200 text-base md:text-xl mb-8 md:mb-10 font-light leading-relaxed max-w-2xl"
+            className="mb-8 md:mb-10 max-w-2xl"
           >
-            Experience the thrill of self-drive with our premium fleet in Navi Mumbai & Panvel. 
-            Luxury, comfort, and performance at your fingertips.
-          </motion.p>
+            <EditableText 
+              path="hero.description" 
+              tag="p" 
+              className="text-gray-200 text-base md:text-xl font-light leading-relaxed" 
+            />
+          </motion.div>
           
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
@@ -75,14 +79,14 @@ export default function Hero() {
               href="#booking"
               className="px-8 py-3.5 md:py-4 bg-gold-500 hover:bg-gold-400 text-black font-bold rounded-full transition-all flex items-center justify-center gap-2 group shadow-[0_0_20px_rgba(212,175,55,0.4)] text-sm md:text-base w-full sm:w-auto"
             >
-              Book Your Car
+              <EditableText path="hero.button1" />
               <ChevronRight size={20} className="group-hover:translate-x-1 transition-transform" />
             </a>
             <a
               href="#fleet"
               className="px-8 py-3.5 md:py-4 bg-white/10 border border-white/30 hover:border-gold-400 text-white hover:text-gold-400 font-medium rounded-full transition-all flex items-center justify-center backdrop-blur-sm text-sm md:text-base w-full sm:w-auto"
             >
-              Explore Fleet
+              <EditableText path="hero.button2" />
             </a>
           </motion.div>
 

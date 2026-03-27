@@ -1,8 +1,12 @@
 import { motion } from 'motion/react';
 import { Fuel, Settings, Users, ArrowRight } from 'lucide-react';
-import { cars } from '../data';
+import { useAdmin } from '../context/AdminContext';
+import { EditableText, EditableImage } from './Editable';
 
 export default function Fleet() {
+  const { content } = useAdmin();
+  const cars = content?.cars || [];
+
   return (
     <section id="fleet" className="py-24 bg-white dark:bg-black relative transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -20,7 +24,7 @@ export default function Fleet() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {cars.map((car, index) => (
+          {cars.map((car: any, index: number) => (
             <motion.div
               key={car.id}
               initial={{ opacity: 0, scale: 0.9, y: 50 }}
@@ -30,40 +34,41 @@ export default function Fleet() {
               className="glass-card rounded-2xl overflow-hidden group hover:-translate-y-2 transition-transform duration-300 bg-white dark:bg-transparent"
             >
               <div className="relative h-56 overflow-hidden">
-                <img
-                  src={car.image}
+                <EditableImage
+                  path={`cars[${index}].image`}
                   alt={car.name}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                  referrerPolicy="no-referrer"
                 />
-                <div className="absolute top-4 right-4 bg-white/90 dark:bg-black/70 backdrop-blur-md px-3 py-1 rounded-full border border-gold-500/30">
-                  <span className="text-gold-600 dark:text-gold-400 font-bold">₹{car.price}</span>
-                  <span className="text-xs text-gray-600 dark:text-gray-300">/day</span>
+                <div className="absolute top-4 right-4 bg-white/90 dark:bg-black/70 backdrop-blur-md px-3 py-1 rounded-full border border-gold-500/30 flex items-center">
+                  <span className="text-gold-600 dark:text-gold-400 font-bold">₹</span>
+                  <EditableText path={`cars[${index}].price`} className="text-gold-600 dark:text-gold-400 font-bold" />
+                  <span className="text-xs text-gray-600 dark:text-gray-300 ml-1">/day</span>
                 </div>
               </div>
               
               <div className="p-6">
                 <div className="flex justify-between items-start mb-4">
                   <div>
-                    <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-1">{car.name}</h3>
-                    <span className="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wider border border-gray-300 dark:border-gray-700 px-2 py-0.5 rounded">
-                      {car.category}
-                    </span>
+                    <EditableText path={`cars[${index}].name`} tag="h3" className="text-xl font-bold text-gray-900 dark:text-white mb-1" />
+                    <EditableText path={`cars[${index}].category`} tag="span" className="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wider border border-gray-300 dark:border-gray-700 px-2 py-0.5 rounded inline-block" />
                   </div>
                 </div>
 
                 <div className="grid grid-cols-3 gap-4 mb-6 pt-4 border-t border-gray-200 dark:border-gray-800">
                   <div className="flex flex-col items-center text-center gap-1">
                     <Settings size={18} className="text-gold-500" />
-                    <span className="text-xs text-gray-600 dark:text-gray-400">{car.transmission}</span>
+                    <EditableText path={`cars[${index}].transmission`} tag="span" className="text-xs text-gray-600 dark:text-gray-400" />
                   </div>
                   <div className="flex flex-col items-center text-center gap-1 border-l border-r border-gray-200 dark:border-gray-800">
                     <Fuel size={18} className="text-gold-500" />
-                    <span className="text-xs text-gray-600 dark:text-gray-400">{car.fuel}</span>
+                    <EditableText path={`cars[${index}].fuel`} tag="span" className="text-xs text-gray-600 dark:text-gray-400" />
                   </div>
                   <div className="flex flex-col items-center text-center gap-1">
                     <Users size={18} className="text-gold-500" />
-                    <span className="text-xs text-gray-600 dark:text-gray-400">{car.seats} Seats</span>
+                    <div className="flex items-center gap-1">
+                      <EditableText path={`cars[${index}].seats`} tag="span" className="text-xs text-gray-600 dark:text-gray-400" />
+                      <span className="text-xs text-gray-600 dark:text-gray-400">Seats</span>
+                    </div>
                   </div>
                 </div>
 

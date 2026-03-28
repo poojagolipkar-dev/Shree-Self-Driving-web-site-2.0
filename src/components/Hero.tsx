@@ -24,48 +24,48 @@ export default function Hero() {
       <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/60 z-10"></div>
 
       {/* Centered Foreground Content */}
-      <div className="relative z-20 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex flex-col items-center text-center pt-24 pb-12 md:pt-0 md:pb-0">
+      <div className="relative z-20 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex flex-col items-center text-center pt-28 pb-16 md:pt-0 md:pb-0">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: "easeOut" }}
-          className="flex flex-col items-center"
+          className="flex flex-col items-center w-full"
         >
-          <div className="flex items-center gap-2 mb-4 md:mb-6">
+          <div className="flex items-center gap-2 mb-6 md:mb-8">
             <motion.div 
               initial={{ width: 0 }}
-              animate={{ width: 48 }}
+              animate={{ width: 32 }}
               transition={{ duration: 0.8, delay: 0.5 }}
-              className="h-[1px] bg-gold-500"
+              className="h-[1px] bg-gold-500 md:w-12"
             ></motion.div>
             <EditableText 
               path="hero.badge" 
-              className="text-gold-400 uppercase tracking-[0.2em] text-xs md:text-sm font-medium" 
+              className="text-gold-400 uppercase tracking-[0.2em] text-[10px] md:text-sm font-medium whitespace-nowrap" 
             />
             <motion.div 
               initial={{ width: 0 }}
-              animate={{ width: 48 }}
+              animate={{ width: 32 }}
               transition={{ duration: 0.8, delay: 0.5 }}
-              className="h-[1px] bg-gold-500"
+              className="h-[1px] bg-gold-500 md:w-12"
             ></motion.div>
           </div>
           
           <EditableText 
             path="hero.title" 
             tag="h1" 
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-semibold text-white leading-tight mb-4 md:mb-6 text-gold-gradient" 
+            className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-semibold text-white leading-[1.1] mb-6 md:mb-8 text-gold-gradient px-2" 
           />
           
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="mb-8 md:mb-10 max-w-2xl"
+            className="mb-10 md:mb-12 max-w-2xl px-4"
           >
             <EditableText 
               path="hero.description" 
               tag="p" 
-              className="text-gray-200 text-base md:text-xl font-light leading-relaxed" 
+              className="text-gray-200 text-sm sm:text-lg md:text-xl font-light leading-relaxed" 
             />
           </motion.div>
           
@@ -73,20 +73,20 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto justify-center"
+            className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto justify-center px-4 sm:px-0"
           >
             <a
               href="#booking"
-              className="px-8 py-3.5 md:py-4 bg-gold-500 hover:bg-gold-400 text-black font-semibold rounded-full transition-all flex items-center justify-center gap-2 group shadow-[0_0_20px_rgba(212,175,55,0.4)] text-sm md:text-base w-full sm:w-auto"
+              className="px-6 py-4 md:px-8 md:py-4 bg-gold-500 hover:bg-gold-400 text-black font-semibold rounded-full transition-all flex items-center justify-center gap-2 group shadow-[0_0_20px_rgba(212,175,55,0.4)] text-sm md:text-base w-full sm:min-w-[200px]"
             >
-              <EditableText path="hero.button1" />
-              <ChevronRight size={20} className="group-hover:translate-x-1 transition-transform" />
+              <EditableText path="hero.button1" className="whitespace-nowrap" />
+              <ChevronRight size={18} className="group-hover:translate-x-1 transition-transform shrink-0" />
             </a>
             <a
               href="#fleet"
-              className="px-8 py-3.5 md:py-4 bg-white/10 border border-white/30 hover:border-gold-400 text-white hover:text-gold-400 font-medium rounded-full transition-all flex items-center justify-center backdrop-blur-sm text-sm md:text-base w-full sm:w-auto"
+              className="px-6 py-4 md:px-8 md:py-4 bg-white/10 border border-white/30 hover:border-gold-400 text-white hover:text-gold-400 font-medium rounded-full transition-all flex items-center justify-center backdrop-blur-sm text-sm md:text-base w-full sm:min-w-[200px]"
             >
-              <EditableText path="hero.button2" />
+              <EditableText path="hero.button2" className="whitespace-nowrap" />
             </a>
           </motion.div>
 

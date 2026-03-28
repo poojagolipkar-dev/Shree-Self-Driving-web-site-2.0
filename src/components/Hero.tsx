@@ -24,7 +24,7 @@ export default function Hero() {
       <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/50 z-10"></div>
 
       {/* Centered Foreground Content */}
-      <div className="relative z-20 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex flex-col items-center text-center py-20 md:py-0">
+      <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex flex-col items-center text-center py-20 md:py-0">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}

@@ -8,6 +8,7 @@
   --color-gold-600: #AA8C2C;
   --font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif;
   --font-display: "Poppins", sans-serif;
+  --breakpoint-lg: 960px;
 }
 
 @layer base {

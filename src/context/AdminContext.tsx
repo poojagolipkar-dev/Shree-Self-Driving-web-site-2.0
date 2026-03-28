@@ -11,6 +11,9 @@ interface AdminContextType {
   toggleEditMode: () => void;
   updateContent: (path: string, value: any) => void;
   saveChanges: () => Promise<void>;
+  changePassword: (newPassword: string) => Promise<void>;
+  showLogin: boolean;
+  setShowLogin: (show: boolean) => void;
 }
 
 const AdminContext = createContext<AdminContextType | undefined>(undefined);
@@ -19,6 +22,7 @@ export const AdminProvider: React.FC<{ children: React.ReactNode }> = ({ childre
   const [isEditMode, setIsEditMode] = useState(false);
   const [token, setToken] = useState<string | null>(localStorage.getItem('adminToken'));
   const [content, setContent] = useState<any>(initialContent);
+  const [showLogin, setShowLogin] = useState(false);
 
   useEffect(() => {
     fetch('/api/content')
@@ -87,8 +91,31 @@ export const AdminProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     }
   };
 
+  const changePassword = async (newPassword: string) => {
+    if (!token) return;
+    try {
+      const res = await fetch('/api/admin/change-password', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify({ newPassword })
+      });
+      if (!res.ok) {
+        const data = await res.json();
+        throw new Error(data.error || 'Failed to change password');
+      }
+      showToast('Password changed successfully!', 'success');
+    } catch (err: any) {
+      console.error(err);
+      showToast(err.message || 'Error changing password', 'error');
+      throw err;
+    }
+  };
+
   return (
-    <AdminContext.Provider value={{ isEditMode, token, content, login, logout, toggleEditMode, updateContent, saveChanges }}>
+    <AdminContext.Provider value={{ isEditMode, token, content, login, logout, toggleEditMode, updateContent, saveChanges, changePassword, showLogin, setShowLogin }}>
       {children}
       {toast && (
         <div className={`fixed bottom-20 right-6 px-4 py-2 rounded shadow-lg z-50 text-white ${toast.type === 'success' ? 'bg-green-600' : 'bg-red-600'}`}>

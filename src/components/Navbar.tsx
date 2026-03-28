@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Sun, Moon } from 'lucide-react';
+import { Menu, X, Sun, Moon, User } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useTheme } from '../hooks/useTheme';
+import { useAdmin } from '../context/AdminContext';
 
 export default function Navbar() {
+  const { token, setShowLogin } = useAdmin();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
@@ -56,7 +58,9 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+      className={`fixed left-0 right-0 z-50 transition-all duration-500 ${
+        token ? 'top-[52px]' : 'top-0'
+      } ${
         showSolidNavbar 
           ? 'bg-white/80 dark:bg-black/80 backdrop-blur-md py-3 shadow-lg border-b border-gray-200/50 dark:border-white/5' 
           : 'bg-transparent py-6'
@@ -130,6 +134,20 @@ export default function Navbar() {
               >
                 {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
               </button>
+
+              {!token && (
+                <button
+                  onClick={() => setShowLogin(true)}
+                  className={`flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-medium transition-all duration-300 ${
+                    showSolidNavbar
+                      ? 'text-gray-600 dark:text-gray-300 hover:text-gold-600 dark:hover:text-gold-400'
+                      : 'text-gray-300 hover:text-white'
+                  }`}
+                >
+                  <User size={16} />
+                  Login
+                </button>
+              )}
 
               <a
                 href="#booking"
@@ -212,6 +230,18 @@ export default function Navbar() {
                 >
                   Book Now
                 </a>
+                
+                {!token && (
+                  <button
+                    onClick={() => {
+                      setShowLogin(true);
+                      setIsMobileMenuOpen(false);
+                    }}
+                    className="block w-full text-center px-6 py-3.5 mt-3 border border-gray-200 dark:border-white/10 text-gray-800 dark:text-gray-200 font-semibold uppercase tracking-wider rounded-xl"
+                  >
+                    Admin Login
+                  </button>
+                )}
               </div>
             </div>
           </motion.div>

@@ -89,7 +89,7 @@ export default function Navbar() {
           </Link>
 
           {/* Desktop Nav */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden lg:flex items-center space-x-8">
             {navLinks.map((link) => {
               const isActive = 
                 link.href === '/' 
@@ -145,7 +145,7 @@ export default function Navbar() {
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="flex items-center gap-4 md:hidden">
+          <div className="flex items-center gap-4 lg:hidden">
             <button
               onClick={toggleTheme}
               className={`p-2 rounded-full transition-colors ${
@@ -175,7 +175,7 @@ export default function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-white/95 dark:bg-black/95 backdrop-blur-xl border-b border-gray-200 dark:border-white/10 overflow-hidden shadow-xl"
+            className="lg:hidden bg-white/95 dark:bg-black/95 backdrop-blur-xl border-b border-gray-200 dark:border-white/10 overflow-hidden shadow-xl"
           >
             <div className="px-6 pt-4 pb-8 space-y-2 flex flex-col">
               {navLinks.map((link) => {

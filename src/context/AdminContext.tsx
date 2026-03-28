@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { set, cloneDeep } from 'lodash-es';
+import initialContent from '../../content.json';
 
 interface AdminContextType {
   isEditMode: boolean;
@@ -17,7 +18,7 @@ const AdminContext = createContext<AdminContextType | undefined>(undefined);
 export const AdminProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [isEditMode, setIsEditMode] = useState(false);
   const [token, setToken] = useState<string | null>(localStorage.getItem('adminToken'));
-  const [content, setContent] = useState<any>(null);
+  const [content, setContent] = useState<any>(initialContent);
 
   useEffect(() => {
     fetch('/api/content')

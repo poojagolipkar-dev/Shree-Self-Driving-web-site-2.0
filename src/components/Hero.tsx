@@ -17,21 +17,21 @@ export default function Hero() {
         ></iframe>
       </div>
       
-      {/* Dark Overlay (50% opacity) */}
-      <div className="absolute inset-0 bg-black/50 z-10"></div>
+      {/* Dark Overlay (30% opacity for better visibility) */}
+      <div className="absolute inset-0 bg-black/30 z-10"></div>
       
       {/* Gradient Overlays for extra readability at edges */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/60 z-10"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/50 z-10"></div>
 
       {/* Centered Foreground Content */}
-      <div className="relative z-20 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex flex-col items-center text-center pt-28 pb-16 md:pt-0 md:pb-0">
+      <div className="relative z-20 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex flex-col items-center text-center py-20 md:py-0">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: "easeOut" }}
           className="flex flex-col items-center w-full"
         >
-          <div className="flex items-center gap-2 mb-6 md:mb-8">
+          <div className="flex items-center gap-2 mb-4 md:mb-8">
             <motion.div 
               initial={{ width: 0 }}
               animate={{ width: 32 }}
@@ -53,14 +53,14 @@ export default function Hero() {
           <EditableText 
             path="hero.title" 
             tag="h1" 
-            className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-semibold text-white leading-[1.1] mb-6 md:mb-8 text-gold-gradient px-2" 
+            className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-semibold text-white leading-[1.1] mb-4 md:mb-8 text-gold-gradient px-2" 
           />
           
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="mb-10 md:mb-12 max-w-2xl px-4"
+            className="mb-8 md:mb-12 max-w-2xl px-4"
           >
             <EditableText 
               path="hero.description" 
@@ -73,18 +73,18 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto justify-center px-4 sm:px-0"
+            className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto justify-center px-4 sm:px-0"
           >
             <a
               href="#booking"
-              className="px-6 py-4 md:px-8 md:py-4 bg-gold-500 hover:bg-gold-400 text-black font-semibold rounded-full transition-all flex items-center justify-center gap-2 group shadow-[0_0_20px_rgba(212,175,55,0.4)] text-sm md:text-base w-full sm:min-w-[200px]"
+              className="px-6 py-3.5 md:px-8 md:py-4 bg-gold-500 hover:bg-gold-400 text-black font-semibold rounded-full transition-all flex items-center justify-center gap-2 group shadow-[0_0_20px_rgba(212,175,55,0.4)] text-sm md:text-base w-full sm:min-w-[200px]"
             >
               <EditableText path="hero.button1" className="whitespace-nowrap" />
               <ChevronRight size={18} className="group-hover:translate-x-1 transition-transform shrink-0" />
             </a>
             <a
               href="#fleet"
-              className="px-6 py-4 md:px-8 md:py-4 bg-white/10 border border-white/30 hover:border-gold-400 text-white hover:text-gold-400 font-medium rounded-full transition-all flex items-center justify-center backdrop-blur-sm text-sm md:text-base w-full sm:min-w-[200px]"
+              className="px-6 py-3.5 md:px-8 md:py-4 bg-white/10 border border-white/30 hover:border-gold-400 text-white hover:text-gold-400 font-medium rounded-full transition-all flex items-center justify-center backdrop-blur-sm text-sm md:text-base w-full sm:min-w-[200px]"
             >
               <EditableText path="hero.button2" className="whitespace-nowrap" />
             </a>
